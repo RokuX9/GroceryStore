@@ -1,0 +1,17 @@
+.search__items {
+	display: flex;
+	flex-basis: 100%;
+	flex-flow: column;
+	background-color: #f0f4f6;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.5s, padding 0.5s;
+	row-gap: 10px;
+}
+
+.search__items_opened {
+	max-height: 500px;
+	padding: 10px 0;
+}

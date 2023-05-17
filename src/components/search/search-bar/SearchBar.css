@@ -1,0 +1,18 @@
+.search-bar {
+	padding: 10px 5px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.search-bar__text {
+	color: #7ca0b1;
+}
+
+.search-bar__icon {
+	mask-image: url("../../../assets/triangle.svg");
+	-webkit-mask-image: url("../../../assets/triangle.svg");
+	background-color: #7ca0b1;
+	height: 25px;
+	width: 25px;
+}
