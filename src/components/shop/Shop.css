@@ -1,3 +1,12 @@
 .shop {
 	max-width: 1400px;
+	display: flex;
+	flex-flow: column;
+	row-gap: 50px;
+	margin-top: 50px;
+}
+
+.shop__divider {
+	margin: 0;
+	border-color: #7ca0b1;
 }

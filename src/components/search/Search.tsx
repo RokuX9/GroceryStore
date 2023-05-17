@@ -16,7 +16,10 @@ export default function Search({ items, transfareToCart }: ISearch) {
 
 	return (
 		<div className="search">
-			<SearchBar handleShowItems={handleShowItems} />
+			<SearchBar
+				handleShowItems={handleShowItems}
+				opened={openSearchItems}
+			/>
 			<SearchItems
 				opened={openSearchItems}
 				items={items}

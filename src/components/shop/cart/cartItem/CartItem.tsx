@@ -3,6 +3,7 @@ import {
 	FormEvent,
 	useState,
 	useEffect,
+	useCallback,
 } from "react";
 import { IItem } from "../../../../App";
 import "./CartItem.css";
@@ -10,23 +11,31 @@ import "./CartItem.css";
 interface ICartItem extends ComponentPropsWithoutRef<"div"> {
 	item: IItem;
 	transfareToSearch: (item: string) => void;
+	setCheckoutItemAmount: (id: String, amount: number, price: number) => void;
 }
 
-export default function CartItem({ item, transfareToSearch }: ICartItem) {
+export default function CartItem({
+	item,
+	transfareToSearch,
+	setCheckoutItemAmount,
+}: ICartItem) {
 	const { itemId, name, itemColor, price, stock } = item;
 	const [amount, setAmount] = useState<number>(0);
 
-	const handleInputChange = (e: FormEvent<HTMLInputElement>) => {
+	const handleInputChange = useCallback((e: FormEvent<HTMLInputElement>) => {
 		if (parseInt(e.currentTarget.value) > stock) {
 			setAmount(stock);
+			setCheckoutItemAmount(itemId, stock, price);
 			return;
 		}
 		if (Number.isNaN(parseInt(e.currentTarget.value))) {
 			setAmount(0);
+			setCheckoutItemAmount(itemId, 0, price);
 			return;
 		}
 		setAmount(parseInt(e.currentTarget.value));
-	};
+		setCheckoutItemAmount(itemId, parseInt(e.currentTarget.value), price);
+	}, []);
 
 	useEffect(() => {
 		if (stock === 0) {
@@ -47,6 +56,7 @@ export default function CartItem({ item, transfareToSearch }: ICartItem) {
 				className="item__delete"
 				onClick={() => {
 					setAmount(0);
+					setCheckoutItemAmount(itemId, 0, price);
 					transfareToSearch(itemId as string);
 				}}
 			>
@@ -62,10 +72,14 @@ export default function CartItem({ item, transfareToSearch }: ICartItem) {
 							max={stock}
 							value={amount}
 							onChange={handleInputChange}
-							className="item__amount_input"
+							className={
+								amount
+									? "item__amount_input"
+									: "item__amount_input item__text_disabled"
+							}
 							disabled={!Boolean(stock)}
 						/>{" "}
-						<span>{amount} KG</span>
+						<span> KG</span>
 					</span>
 				</div>
 				<input
@@ -78,7 +92,16 @@ export default function CartItem({ item, transfareToSearch }: ICartItem) {
 					disabled={!Boolean(stock)}
 				/>
 			</div>
-			<div className="item__price">Price: {amount * price}</div>
+			<div className="item__price">
+				Price:{" "}
+				<span
+					className={
+						amount ? "item__num-price" : "item__num-price item__text_disabled"
+					}
+				>
+					${amount * price}
+				</span>
+			</div>
 		</div>
 	);
 }

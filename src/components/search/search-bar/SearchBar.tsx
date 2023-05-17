@@ -3,9 +3,10 @@ import "./SearchBar.css";
 
 interface ISearchBar extends ComponentPropsWithoutRef<"div"> {
 	handleShowItems: () => void;
+	opened: Boolean;
 }
 
-export default function SearchBar({ handleShowItems }: ISearchBar) {
+export default function SearchBar({ handleShowItems, opened }: ISearchBar) {
 	return (
 		<div
 			className="search-bar"
@@ -14,7 +15,13 @@ export default function SearchBar({ handleShowItems }: ISearchBar) {
 			}}
 		>
 			<span className="search-bar__text">Select to add item to basket</span>
-			<div className="search-bar__icon"></div>
+			<div
+				className={
+					opened
+						? "search-bar__icon search-bar__icon_opened"
+						: "search-bar__icon"
+				}
+			></div>
 		</div>
 	);
 }

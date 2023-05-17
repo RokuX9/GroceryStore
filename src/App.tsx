@@ -10,6 +10,7 @@ export interface IItem {
 	itemColor: String;
 	price: number;
 	stock: number;
+	amount?: number;
 }
 
 function App() {
@@ -31,10 +32,14 @@ function App() {
 				items={searchItems}
 				transfareToCart={transfareToCart}
 			/>
-			<Shop
-				items={cartItems}
-				transfareToSearch={transfareToSearch}
-			/>
+			{cartItems.length ? (
+				<Shop
+					items={cartItems}
+					transfareToSearch={transfareToSearch}
+				/>
+			) : (
+				""
+			)}
 		</>
 	);
 }

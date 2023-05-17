@@ -1,0 +1,11 @@
+.checkout-item {
+	display: flex;
+	width: 100%;
+	align-items: center;
+	column-gap: 10px;
+}
+
+.checkout-item__divider {
+	border-bottom: #a0a2a5 1px dashed;
+	flex-grow: 1;
+}

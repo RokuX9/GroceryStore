@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef } from "react";
+import { ComponentPropsWithoutRef, Key } from "react";
 import SearchItem from "./search-item/SearchItem";
 import { IItem } from "../../../App";
 
@@ -21,10 +21,10 @@ export default function SearchItems({
 				opened ? "search__items search__items_opened" : "search__items"
 			}
 		>
-			{items.map((item, i) => (
+			{items.map((item) => (
 				<SearchItem
 					name={item}
-					key={i}
+					key={item as Key}
 					transfareToCart={transfareToCart}
 				/>
 			))}

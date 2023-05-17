@@ -15,4 +15,9 @@
 	background-color: #7ca0b1;
 	height: 25px;
 	width: 25px;
+	transition: transform 0.5s;
+}
+
+.search-bar__icon_opened {
+	transform: scaleY(-1);
 }

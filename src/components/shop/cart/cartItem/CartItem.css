@@ -36,7 +36,6 @@
 	background-color: #a59898;
 	-webkit-mask-repeat: no-repeat;
 	-webkit-mask-position: center;
-
 	padding: 15px;
 }
 
@@ -53,15 +52,23 @@
 	border-radius: 10px;
 	border: 0.5px solid #f4f4f4;
 	text-align: center;
+	color: #49869f;
 }
 
 .item__range {
 	margin-top: 10px;
 	width: 100%;
+	-webkit-appearance: none;
+	background-color: #ebebe4;
+	border-radius: 20px;
 }
 
 .item__price {
 	grid-area: price;
+}
+
+.item__num-price {
+	font-size: 36px;
 }
 
 .item__icon {
@@ -103,4 +110,8 @@
 .item__icon_type_salad {
 	mask-image: url("../../../../assets/salad.svg");
 	-webkit-mask-image: url("../../../../assets/salad.svg");
+}
+
+.item__text_disabled {
+	color: #ebebe4;
 }
