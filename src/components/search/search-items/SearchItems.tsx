@@ -1,13 +1,20 @@
 import { ComponentPropsWithoutRef } from "react";
 import SearchItem from "./search-item/SearchItem";
-import { items } from "../../../utils/constants";
+import { IItem } from "../../../App";
+
 import "./SearchItems.css";
 
 interface ISearchItems extends ComponentPropsWithoutRef<"div"> {
 	opened: boolean;
+	items: Array<String>;
+	transfareToCart: (item: IItem) => void;
 }
 
-export default function SearchItems({ opened }: ISearchItems) {
+export default function SearchItems({
+	opened,
+	items,
+	transfareToCart,
+}: ISearchItems) {
 	return (
 		<div
 			className={
@@ -18,6 +25,7 @@ export default function SearchItems({ opened }: ISearchItems) {
 				<SearchItem
 					name={item}
 					key={i}
+					transfareToCart={transfareToCart}
 				/>
 			))}
 		</div>

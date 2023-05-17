@@ -1,18 +1,27 @@
 import { apiUrl } from "../../../../utils/constants";
 import { ComponentPropsWithoutRef } from "react";
+import { IItem } from "../../../../App";
 import "./SearchItem.css";
 
 interface ISearchItem extends ComponentPropsWithoutRef<"div"> {
 	name: String;
+	transfareToCart: (item: IItem) => void;
 }
 
-export default function SearchItem({ name }: ISearchItem) {
+export default function SearchItem({ name, transfareToCart }: ISearchItem) {
 	return (
 		<div
 			className="search-item"
 			onClick={async () => {
-				const data = await fetch(apiUrl + name);
-				console.log(await data.json());
+				const result = await fetch(apiUrl + name);
+				const data = await result.json();
+				transfareToCart({
+					itemId: data!.id,
+					name: data!.name,
+					itemColor: data!.color,
+					price: data!.price,
+					stock: data!.stock,
+				});
 			}}
 		>
 			<span className="search-item__name">

@@ -1,0 +1,106 @@
+.item {
+	display: grid;
+	grid-template-areas:
+		"header header header header delete"
+		"input input input input input"
+		"price price price price price";
+	gap: 10px;
+	box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+	border-radius: 5px;
+	padding: 10px;
+	color: #7ca0b1;
+}
+
+.item__header {
+	grid-area: header;
+	display: flex;
+	align-items: center;
+	color: #ffffff;
+	border-radius: 10px;
+	text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+	font-size: 24px;
+	column-gap: 16px;
+	padding: 0 10px;
+}
+
+.item__delete {
+	grid-area: delete;
+	border-radius: 10px;
+	background-color: #f4f4f4;
+	border: none;
+}
+
+.item__delete_icon {
+	mask-image: url("../../../../assets/cancel.svg");
+	-webkit-mask-image: url("../../../../assets/cancel.svg");
+	background-color: #a59898;
+	-webkit-mask-repeat: no-repeat;
+	-webkit-mask-position: center;
+
+	padding: 15px;
+}
+
+.item__input {
+	grid-area: input;
+}
+
+.item__amount {
+	display: flex;
+	justify-content: space-between;
+}
+
+.item__amount_input {
+	border-radius: 10px;
+	border: 0.5px solid #f4f4f4;
+	text-align: center;
+}
+
+.item__range {
+	margin-top: 10px;
+	width: 100%;
+}
+
+.item__price {
+	grid-area: price;
+}
+
+.item__icon {
+	background-color: #ffffff;
+	height: 50px;
+	width: 50px;
+}
+
+.item__icon_type_apple {
+	mask-image: url("../../../../assets/apple.svg");
+	-webkit-mask-image: url("../../../../assets/apple.svg");
+}
+
+.item__icon_type_carrot {
+	mask-image: url("../../../../assets/carrot.svg");
+	-webkit-mask-image: url("../../../../assets/carrot.svg");
+}
+
+.item__icon_type_melon {
+	mask-image: url("../../../../assets/melon.svg");
+	-webkit-mask-image: url("../../../../assets/melon.svg");
+}
+
+.item__icon_type_lemon {
+	mask-image: url("../../../../assets/lemon.svg");
+	-webkit-mask-image: url("../../../../assets/lemon.svg");
+}
+
+.item__icon_type_pear {
+	mask-image: url("../../../../assets/pear.svg");
+	-webkit-mask-image: url("../../../../assets/pear.svg");
+}
+
+.item__icon_type_orange {
+	mask-image: url("../../../../assets/oragne.svg");
+	-webkit-mask-image: url("../../../../assets/oragne.svg");
+}
+
+.item__icon_type_salad {
+	mask-image: url("../../../../assets/salad.svg");
+	-webkit-mask-image: url("../../../../assets/salad.svg");
+}

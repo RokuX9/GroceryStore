@@ -1,0 +1,11 @@
+.cart {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 16px;
+}
+
+@media screen and (max-width: 768px) {
+	.cart {
+		grid-template-columns: 1fr;
+	}
+}
